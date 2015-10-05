@@ -16,3 +16,6 @@ class Languge():
     def update(self, setting):
         self.setting = setting
         self.setLanguage()
+
+    def getLanguageList(self):
+        return os.listdir(os.path.join(self.setting['path'],self.setting['userSetting'].language['path']))

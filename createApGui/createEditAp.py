@@ -141,10 +141,30 @@ class CreateEditAp(Gtk.Window):
         self.notebook.append_page(table, Gtk.Label(self._('Create AP')))
 
     def initSettingPage(self):
-        self.settingPage = Gtk.Box()
-        self.settingPage.set_border_width(10)
-        self.settingPage.add(Gtk.Label('Setting'))
-        self.notebook.append_page(self.settingPage, Gtk.Label(self._('Setting')))
+        table = Gtk.Table(10,3,True)
+        table.set_border_width(20)
+        table.set_row_spacings(10)
+        table.set_col_spacings(10)
+        #language label
+        self.createLabel(self._('Language'),[0,1,0,1],table)
+        #init language comboBox
+        self.createLangugeListStore()
+        self.languageComboBox = Gtk.ComboBox.new_with_model(self.languageListStore)
+        defaultPosition = self.setting['language'].getLanguageList().index(self.setting['userSetting'].language['name'])
+        self.createComboBox(self.languageComboBox, [1,3,0,1],table , defaultPosition)
+        self.createButton(self._('Save'),[2,3,9,10], table, self.saveSetting)
+        self.notebook.append_page(table, Gtk.Label(self._('Setting')))
+
+    def saveSetting(self, button=None):
+
+        language = self.getComboBoxSelect(self.interface1ComboBox)
+        self.setting['userSetting'].language['name'] = self.getComboBoxSelect(self.interface1ComboBox)
+
+
+    def createLangugeListStore(self):
+        self.languageListStore = Gtk.ListStore(str)
+        self.languageListStore.append(self.setting['language'].getLanguageList())
+        pass
 
     def initAboutPage(self):
         self.aboutPage = Gtk.Box()
@@ -178,6 +198,8 @@ class CreateEditAp(Gtk.Window):
         renderer_text = Gtk.CellRendererText()
         name.pack_start(renderer_text, True)
         name.add_attribute(renderer_text, "text", 0)
+        if default != None:
+            name.set_active(default)
         table.attach(name ,pos[0],pos[1],pos[2],pos[3])
 
     def createEntry(self, name, pos, table, text="", visible=True):
