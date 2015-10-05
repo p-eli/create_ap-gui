@@ -41,6 +41,11 @@ class UserSetting():
     def load(self):
         try:
             with open(os.path.join(self.saveFile['path'],self.saveFile['fileName']), 'rb') as file:
-                return pickle.load(file)
+                loadSetting = pickle.load(file)
+                if loadSetting.language['name'] == 'English':
+                    self.saveAp = loadSetting.saveAp
+                    return self
+                else:
+                    return loadSetting
         except FileNotFoundError:
             return self
