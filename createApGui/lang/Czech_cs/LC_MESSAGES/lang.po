@@ -1,0 +1,228 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR jakub.pelikan@gmail.com, 2015.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.2\n"
+"Report-Msgid-Bugs-To: jakub.pelikan@gmail.com \n"
+"POT-Creation-Date: 2015-10-05 21:36+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Jakub Pelikan jakub.pelikan@gmail.com\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: createApGui/createEditAp.py:44 createApGui/createEditAp.py:94
+#: createApGui/createEditAp.py:131
+msgid "AP name"
+msgstr "Jméno AP"
+
+#: createApGui/createEditAp.py:48 createApGui/createEditAp.py:107
+msgid "Wifi interface"
+msgstr "Wifi interface"
+
+#: createApGui/createEditAp.py:52 createApGui/createEditAp.py:112
+msgid "Interface with Internet"
+msgstr "Interface s Internetem"
+
+#: createApGui/createEditAp.py:56
+msgid "Receiving"
+msgstr "Stahování"
+
+#: createApGui/createEditAp.py:58 createApGui/createEditAp.py:62
+#: createApGui/createEditAp.py:66 createApGui/createEditAp.py:70
+msgid "None"
+msgstr "None"
+
+#: createApGui/createEditAp.py:60
+msgid "Total Received"
+msgstr "Staženo"
+
+#: createApGui/createEditAp.py:64
+msgid "Sending"
+msgstr "Odesílání"
+
+#: createApGui/createEditAp.py:68
+msgid "Total Sent"
+msgstr "Odesláno"
+
+#: createApGui/createEditAp.py:73 createApGui/runningAp.py:10
+msgid "Connect"
+msgstr "Připojeno"
+
+#: createApGui/createEditAp.py:75
+msgid "Running AP"
+msgstr "Běžící AP"
+
+#: createApGui/createEditAp.py:99
+msgid "Password"
+msgstr "Heslo"
+
+#: createApGui/createEditAp.py:104
+msgid "Show password"
+msgstr "Zobrazit heslo"
+
+#: createApGui/createEditAp.py:117
+msgid "Refresh"
+msgstr "Obnovit"
+
+#: createApGui/createEditAp.py:119
+msgid "Only Create"
+msgstr "Pouze vytvořit"
+
+#: createApGui/createEditAp.py:120
+msgid "Save and Create"
+msgstr "Uložit a vytvořit"
+
+#: createApGui/createEditAp.py:121
+msgid "New AP"
+msgstr "Nový AP"
+
+#: createApGui/createEditAp.py:131
+msgid "Interface1"
+msgstr "Interface1"
+
+#: createApGui/createEditAp.py:131
+msgid "Interface2"
+msgstr "Interface2"
+
+#: createApGui/createEditAp.py:137
+msgid "Delete"
+msgstr "Smazat"
+
+#: createApGui/createEditAp.py:139
+msgid "Create"
+msgstr "Vytvořit"
+
+#: createApGui/createEditAp.py:141 createApGui/trayRightClickMenu.py:44
+msgid "Create AP"
+msgstr "Vytvořit AP"
+
+#: createApGui/createEditAp.py:149
+msgid "Language"
+msgstr "Jazyk"
+
+#: createApGui/createEditAp.py:155
+msgid "Save"
+msgstr "Uložit"
+
+#: createApGui/createEditAp.py:156 createApGui/trayRightClickMenu.py:37
+msgid "Setting"
+msgstr "Nastavení"
+
+#: createApGui/createEditAp.py:173
+msgid "Create AP Gui"
+msgstr "Create AP Gui"
+
+#: createApGui/createEditAp.py:178
+msgid ""
+"\t Gui application for easy creating access points.\n"
+" Application allows save configuration for quickly create AP."
+msgstr ""
+"\t Grafická aplikace pro snadné vytvoření přístupového bodu.\n"
+" Aplikace také umožňuje uložit configurace pro rychlé vytvoření AP."
+
+#: createApGui/createEditAp.py:180
+msgid "Author:"
+msgstr "Autor:"
+
+#: createApGui/createEditAp.py:181
+msgid "Jakub Pelikan"
+msgstr "Jakub Pelikan"
+
+#: createApGui/createEditAp.py:183
+msgid "Nick:"
+msgstr "Nick:"
+
+#: createApGui/createEditAp.py:184
+msgid "P-eli"
+msgstr "P-eli"
+
+#: createApGui/createEditAp.py:186
+msgid "Email:"
+msgstr "Email:"
+
+#: createApGui/createEditAp.py:187
+msgid "jakub.pelikan@gmail.com"
+msgstr "jakub.pelikan@gmail.com"
+
+#: createApGui/createEditAp.py:189
+msgid "Website:"
+msgstr "Website:"
+
+#: createApGui/createEditAp.py:196 createApGui/trayRightClickMenu.py:35
+msgid "About"
+msgstr "O aplikaci"
+
+#: createApGui/createEditAp.py:298
+msgid "AP is running"
+msgstr "AP je aktivní"
+
+#: createApGui/createEditAp.py:298
+msgid "Before start new one, turn off running AP."
+msgstr "Před spuštění nového AP, nejprve vypněte již běžící"
+
+#: createApGui/createEditAp.py:336
+msgid "Invalid password length"
+msgstr "Špatná délka hesla"
+
+#: createApGui/createEditAp.py:336
+msgid "expected length 8..63"
+msgstr "očekávaná délka je 8..63"
+
+#: createApGui/createEditAp.py:339
+msgid "Ap name is Empty"
+msgstr "Jméno AP je prázdné"
+
+#: createApGui/createEditAp.py:339
+msgid "Please fill it."
+msgstr "Prosím vyplňte jej."
+
+#: createApGui/runningAp.py:10
+msgid "No active AP"
+msgstr "Neaktivní AP"
+
+#: createApGui/runningAp.py:20
+msgid "Creating AP..."
+msgstr "Vytváření AP"
+
+#: createApGui/runningAp.py:21 createApGui/runningAp.py:47
+msgid "Disconnect"
+msgstr "Odpojit"
+
+#: createApGui/runningAp.py:40
+msgid "Create failed"
+msgstr "Vytváření selhalo"
+
+#: createApGui/runningAp.py:42
+msgid "AP Error"
+msgstr "AP Error"
+
+#: createApGui/runningAp.py:43
+msgid "Error details"
+msgstr "Zobrazit chybu"
+
+#: createApGui/runningAp.py:46
+msgid "AP is active"
+msgstr "AP je aktivní"
+
+#: createApGui/runningAp.py:49
+msgid "INTERFACE-DISABLED"
+msgstr "INTERFACE-DISABLED"
+
+#: createApGui/trayRightClickMenu.py:28
+msgid "Show AP Status"
+msgstr "Zobrazit AP status"
+
+#: createApGui/trayRightClickMenu.py:32
+msgid "Setup New AP"
+msgstr "Vytvořit nový AP"
+
+#: createApGui/trayRightClickMenu.py:39
+msgid "Exit"
+msgstr "Ukončit"

@@ -156,7 +156,8 @@ class CreateEditAp(Gtk.Window):
         self.notebook.append_page(table, Gtk.Label(self._('Setting')))
 
     def saveSetting(self, button=None):
-        self.setting['userSetting'].language['name'] = self.getComboBoxSelect(self.interface1ComboBox)
+        self.setting['userSetting'].language['name'] = self.getComboBoxSelect(self.languageComboBox)
+        self.setting['language'].update(self.setting)
         self.setting['userSetting'].save()
 
     def createLanguageListStore(self):
@@ -188,12 +189,10 @@ class CreateEditAp(Gtk.Window):
         #Website
         self.createLabel(self._('Website:'),[0,1,7,8],table, aligment='right')
         website = Gtk.Label()
-        self.createLabel(self._(''),[1,3,7,8],table,website, aligment='left')
-        website.set_markup("<a href=\"http://github.com/p-eli/create_ap-gui\" "
-                         "title=\"Click to open website\">http://github.com/p-eli/create_ap-gui</a>")
-        ''
-        self.createLabel(self._(''),[0,1,8,9],table, aligment='right')
-        self.createLabel(self._(''),[0,1,9,10],table, aligment='right')
+        self.createLabel('',[1,3,7,8],table,website, aligment='left')
+        website.set_markup("<a href=\"http://github.com/p-eli/create_ap-gui\" " "title=\"Click to open website\">http://github.com/p-eli/create_ap-gui</a>")
+        self.createLabel('',[0,1,8,9],table, aligment='right')
+        self.createLabel('',[0,1,9,10],table, aligment='right')
 
         self.notebook.append_page(table, Gtk.Label(self._('About')))
 

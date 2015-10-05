@@ -20,8 +20,11 @@ class Gui():
             dialog.destroy()
         else:
             self.setting={'userSetting':UserSetting(),'lang':None, 'path':self.getPath(), 'runningAp':None, 'createEditAp':None, 'iconPath':os.path.join(self.getPath(),'image','icon.png')}
+
+            self.setting['userSetting'] = self.setting['userSetting'].load()
             self.setting['language'] = Languge(self.setting)
             self.setting['runningAp'] = RunningAp(self.setting)
+
             if not os.path.exists(self.setting['userSetting'].saveFile['path']):
                 os.makedirs(self.setting['userSetting'].saveFile['path'])
             if not self.setting['userSetting'].saveFile['fileName'] in os.listdir(self.setting['userSetting'].saveFile['path']):
@@ -36,7 +39,7 @@ class Gui():
         self.start()
 
     def start(self):
-        self.setting['userSetting'] = self.setting['userSetting'].load()
+
         tray = TrayIcon(self.setting)
         Gtk.main()
 

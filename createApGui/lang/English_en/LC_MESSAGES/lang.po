@@ -1,0 +1,228 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR jakub.pelikan@gmail.com, 2015.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.2\n"
+"Report-Msgid-Bugs-To: jakub.pelikan@gmail.com \n"
+"POT-Creation-Date: 2015-10-05 21:36+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Jakub Pelikan jakub.pelikan@gmail.com\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: createApGui/createEditAp.py:44 createApGui/createEditAp.py:94
+#: createApGui/createEditAp.py:131
+msgid "AP name"
+msgstr "AP name"
+
+#: createApGui/createEditAp.py:48 createApGui/createEditAp.py:107
+msgid "Wifi interface"
+msgstr "Wifi interface"
+
+#: createApGui/createEditAp.py:52 createApGui/createEditAp.py:112
+msgid "Interface with Internet"
+msgstr "Interface with Internet"
+
+#: createApGui/createEditAp.py:56
+msgid "Receiving"
+msgstr "Receiving"
+
+#: createApGui/createEditAp.py:58 createApGui/createEditAp.py:62
+#: createApGui/createEditAp.py:66 createApGui/createEditAp.py:70
+msgid "None"
+msgstr "None"
+
+#: createApGui/createEditAp.py:60
+msgid "Total Received"
+msgstr "Total Received"
+
+#: createApGui/createEditAp.py:64
+msgid "Sending"
+msgstr "Sending"
+
+#: createApGui/createEditAp.py:68
+msgid "Total Sent"
+msgstr "Total Sent"
+
+#: createApGui/createEditAp.py:73 createApGui/runningAp.py:10
+msgid "Connect"
+msgstr "Connect"
+
+#: createApGui/createEditAp.py:75
+msgid "Running AP"
+msgstr "Running AP"
+
+#: createApGui/createEditAp.py:99
+msgid "Password"
+msgstr "Password"
+
+#: createApGui/createEditAp.py:104
+msgid "Show password"
+msgstr "Show password"
+
+#: createApGui/createEditAp.py:117
+msgid "Refresh"
+msgstr "Refresh"
+
+#: createApGui/createEditAp.py:119
+msgid "Only Create"
+msgstr "Only Create"
+
+#: createApGui/createEditAp.py:120
+msgid "Save and Create"
+msgstr "Save and Create"
+
+#: createApGui/createEditAp.py:121
+msgid "New AP"
+msgstr "New AP"
+
+#: createApGui/createEditAp.py:131
+msgid "Interface1"
+msgstr "Interface1"
+
+#: createApGui/createEditAp.py:131
+msgid "Interface2"
+msgstr "Interface2"
+
+#: createApGui/createEditAp.py:137
+msgid "Delete"
+msgstr "Delete"
+
+#: createApGui/createEditAp.py:139
+msgid "Create"
+msgstr "Create"
+
+#: createApGui/createEditAp.py:141 createApGui/trayRightClickMenu.py:44
+msgid "Create AP"
+msgstr "Create AP"
+
+#: createApGui/createEditAp.py:149
+msgid "Language"
+msgstr "Language"
+
+#: createApGui/createEditAp.py:155
+msgid "Save"
+msgstr "Save"
+
+#: createApGui/createEditAp.py:156 createApGui/trayRightClickMenu.py:37
+msgid "Setting"
+msgstr "Setting"
+
+#: createApGui/createEditAp.py:173
+msgid "Create AP Gui"
+msgstr "Create AP Gui"
+
+#: createApGui/createEditAp.py:178
+msgid ""
+"\t Gui application for easy creating access points.\n"
+" Application allows save configuration for quickly create AP."
+msgstr ""
+"\t Gui application for easy creating access points.\n"
+" Application allows save configuration for quickly create AP."
+
+#: createApGui/createEditAp.py:180
+msgid "Author:"
+msgstr "Author:"
+
+#: createApGui/createEditAp.py:181
+msgid "Jakub Pelikan"
+msgstr "Jakub Pelikan"
+
+#: createApGui/createEditAp.py:183
+msgid "Nick:"
+msgstr "Nick:"
+
+#: createApGui/createEditAp.py:184
+msgid "P-eli"
+msgstr "P-eli"
+
+#: createApGui/createEditAp.py:186
+msgid "Email:"
+msgstr "Email:"
+
+#: createApGui/createEditAp.py:187
+msgid "jakub.pelikan@gmail.com"
+msgstr "jakub.pelikan@gmail.com"
+
+#: createApGui/createEditAp.py:189
+msgid "Website:"
+msgstr "Website"
+
+#: createApGui/createEditAp.py:196 createApGui/trayRightClickMenu.py:35
+msgid "About"
+msgstr "About"
+
+#: createApGui/createEditAp.py:298
+msgid "AP is running"
+msgstr "AP is running"
+
+#: createApGui/createEditAp.py:298
+msgid "Before start new one, turn off running AP."
+msgstr "Before start new one, turn off running AP."
+
+#: createApGui/createEditAp.py:336
+msgid "Invalid password length"
+msgstr "Invalid password length"
+
+#: createApGui/createEditAp.py:336
+msgid "expected length 8..63"
+msgstr "expected length 8..63"
+
+#: createApGui/createEditAp.py:339
+msgid "Ap name is Empty"
+msgstr "Ap name is Empty"
+
+#: createApGui/createEditAp.py:339
+msgid "Please fill it."
+msgstr "Please fill it."
+
+#: createApGui/runningAp.py:10
+msgid "No active AP"
+msgstr "No active AP"
+
+#: createApGui/runningAp.py:20
+msgid "Creating AP..."
+msgstr "Creating AP..."
+
+#: createApGui/runningAp.py:21 createApGui/runningAp.py:47
+msgid "Disconnect"
+msgstr "Disconnect"
+
+#: createApGui/runningAp.py:40
+msgid "Create failed"
+msgstr "Create failed"
+
+#: createApGui/runningAp.py:42
+msgid "AP Error"
+msgstr "AP Error"
+
+#: createApGui/runningAp.py:43
+msgid "Error details"
+msgstr "Error details"
+
+#: createApGui/runningAp.py:46
+msgid "AP is active"
+msgstr "AP is active"
+
+#: createApGui/runningAp.py:49
+msgid "INTERFACE-DISABLED"
+msgstr "INTERFACE-DISABLED"
+
+#: createApGui/trayRightClickMenu.py:28
+msgid "Show AP Status"
+msgstr "Show AP Status"
+
+#: createApGui/trayRightClickMenu.py:32
+msgid "Setup New AP"
+msgstr "Setup New AP"
+
+#: createApGui/trayRightClickMenu.py:39
+msgid "Exit"
+msgstr "Exit"

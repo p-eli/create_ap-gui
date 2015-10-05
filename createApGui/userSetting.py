@@ -4,7 +4,7 @@ import pickle
 import os
 class UserSetting():
     def __init__(self):
-        self.language = {'name':'English', 'fileName':'lang', 'path':'lang'}
+        self.language = {'name':'English_en', 'fileName':'lang', 'path':'lang'}
         self.saveAp = []
         try:
             self.saveFile = {'path':os.path.join(os.path.expanduser("~"+os.getenv("SUDO_USER")),'.crateApGui'), 'fileName':'userSetting'}
