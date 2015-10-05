@@ -1,0 +1,4 @@
+include README
+recursive-include createApGui/lang *
+recursive-include createApGui/image *
+recursive-include postinst *

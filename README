@@ -1,0 +1,10 @@
+createApGui - Gui application for easy creating access points. Application allows save configuration for quickly create AP.
+Author: Jakub Pelikan
+Email: jakub.pelikan@gmail.com
+Date: 1.9.2015
+
+
+todo make language version
+xgettext -d wis -o lang.pot ./gui/*.py
+cp lang.pot language/Czech_cs/LC_MESSAGES/lang.po
+msgfmt -o lang.mo lang.po

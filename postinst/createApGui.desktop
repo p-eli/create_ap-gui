@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=createAp-Gui
+X-GNOME-FullName=gksudo create_ap-gui
+Exec=gksudo create_ap-gui
+TryExec=gksudo createAp-Gui
+Icon=createApGui.png
+Terminal=false
+Type=Application
+StartupNotify=false
+Comment=FIT Information System
+Name[en_US]=createAp-Gui
