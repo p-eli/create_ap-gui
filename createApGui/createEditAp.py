@@ -41,33 +41,33 @@ class CreateEditAp(Gtk.Window):
         table.attach(self.statusTitleLabel, 0,3,0,3)
         #information about conection
         #Name
-        self.createLabel(self._('AP name'),[0,1,3,4], table,aligmentRight=False)
+        self.createLabel(self._('AP name'),[0,1,3,4], table, aligment='right')
         self.statusNameAp = Gtk.Label()
-        self.createLabel('None', [1,3,3,4], table, self.statusNameAp, False)
+        self.createLabel('None', [1,3,3,4], table, self.statusNameAp, aligment='left')
         #wifi interface 1
-        self.createLabel(self._('Wifi interface'),[0,1,4,5], table,aligmentRight=False)
+        self.createLabel(self._('Wifi interface'),[0,1,4,5], table, aligment='right')
         self.statusInterface1 = Gtk.Label()
-        self.createLabel('None', [1,3,4,5], table, self.statusInterface1, False)
+        self.createLabel('None', [1,3,4,5], table, self.statusInterface1, aligment='left')
         #wifi interface 2
-        self.createLabel(self._('Interface with Internet'),[0,1,5,6], table,aligmentRight=False)
+        self.createLabel(self._('Interface with Internet'),[0,1,5,6], table, aligment='right')
         self.statusInterface2 = Gtk.Label()
-        self.createLabel('None', [1,3,5,6], table, self.statusInterface2, False)
+        self.createLabel('None', [1,3,5,6], table, self.statusInterface2, aligment='left')
         #Receiving
-        self.createLabel(self._('Receiving'),[0,1,6,7], table,aligmentRight=False)
+        self.createLabel(self._('Receiving'),[0,1,6,7], table, aligment='right')
         self.statusReciving = Gtk.Label()
-        self.createLabel(self._('None'), [1,2,6,7], table, self.statusReciving, False)
+        self.createLabel(self._('None'), [1,2,6,7], table, self.statusReciving, aligment='left')
         #Total Received
-        self.createLabel(self._('Total Received'),[0,1,7,8],table,aligmentRight=False)
+        self.createLabel(self._('Total Received'),[0,1,7,8],table, aligment='right')
         self.statusTotalReciving = Gtk.Label()
-        self.createLabel(self._('None'), [1,2,7,8],table, self.statusTotalReciving, False)
+        self.createLabel(self._('None'), [1,2,7,8],table, self.statusTotalReciving, aligment='left')
         #Sending
-        self.createLabel(self._('Sending'),[1,2,6,7],table)
+        self.createLabel(self._('Sending'),[1,2,6,7],table, aligment='right')
         self.statusSending = Gtk.Label()
-        self.createLabel(self._('None'), [2,3,6,7],table, self.statusSending, False)
+        self.createLabel(self._('None'), [2,3,6,7],table, self.statusSending, aligment='left')
         #Total Sent
-        self.createLabel(self._('Total Sent'),[1,2,7,8],table)
+        self.createLabel(self._('Total Sent'),[1,2,7,8],table, aligment='right')
         self.statusTotalSending = Gtk.Label()
-        self.createLabel(self._('None'), [2,3,7,8], table, self.statusTotalSending, False)
+        self.createLabel(self._('None'), [2,3,7,8], table, self.statusTotalSending, aligment='left')
         #connect / disconect button
         self.connectDisconectButton = Gtk.Button()
         self.createButton(self._('Connect'),[2,3,9,10],table,self.connectDisconnect,self.connectDisconectButton )
@@ -91,12 +91,12 @@ class CreateEditAp(Gtk.Window):
         table.set_col_spacings(10)
         #create New Form
         #acces point name
-        self.createLabel(self._('AP name'),[0,1,0,1], table)
+        self.createLabel(self._('AP name'),[0,1,0,1], table, aligment='right')
         #access point name set text
         self.apName = Gtk.Entry()
         self.createEntry(self.apName, [1,3,0,1],table, "")
         #acces point password
-        self.createLabel(self._('Password'),[0,1,1,2],table)
+        self.createLabel(self._('Password'),[0,1,1,2],table, aligment='right')
         #access point password set text
         self.apPassword = Gtk.Entry()
         self.createEntry(self.apPassword, [1,3,1,2],table,"",False)
@@ -104,12 +104,12 @@ class CreateEditAp(Gtk.Window):
         self.showPassword = Gtk.CheckButton(self._("Show password"),table)
         self.createCheckButton(self.showPassword, [1,3,2,3],table , self.showHidePasswd, True)
         #wifi interface label
-        self.createLabel(self._('Wifi interface'),[0,1,3,4],table)
+        self.createLabel(self._('Wifi interface'),[0,1,3,4],table, aligment='right')
         #wifi interface Combobox
         self.interface1ComboBox = Gtk.ComboBox.new_with_model(self.interfaceListStore)
         self.createComboBox(self.interface1ComboBox, [1,3,3,4],table , None)
         #interface with internet Label
-        self.createLabel(self._('Interface with Internet'),[0,1,4,5],table)
+        self.createLabel(self._('Interface with Internet'),[0,1,4,5],table, aligment='right')
         #interface with internet Combobox
         self.interface2ComboBox = Gtk.ComboBox.new_with_model(self.interfaceListStore)
         self.createComboBox( self.interface2ComboBox, [1,3,4,5], table, None)
@@ -146,9 +146,9 @@ class CreateEditAp(Gtk.Window):
         table.set_row_spacings(10)
         table.set_col_spacings(10)
         #language label
-        self.createLabel(self._('Language'),[0,1,0,1],table)
+        self.createLabel(self._('Language'),[0,1,0,1],table, aligment='right')
         #init language comboBox
-        self.createLangugeListStore()
+        self.createLanguageListStore()
         self.languageComboBox = Gtk.ComboBox.new_with_model(self.languageListStore)
         defaultPosition = self.setting['language'].getLanguageList().index(self.setting['userSetting'].language['name'])
         self.createComboBox(self.languageComboBox, [1,3,0,1],table , defaultPosition)
@@ -156,21 +156,46 @@ class CreateEditAp(Gtk.Window):
         self.notebook.append_page(table, Gtk.Label(self._('Setting')))
 
     def saveSetting(self, button=None):
-
-        language = self.getComboBoxSelect(self.interface1ComboBox)
         self.setting['userSetting'].language['name'] = self.getComboBoxSelect(self.interface1ComboBox)
+        self.setting['userSetting'].save()
 
-
-    def createLangugeListStore(self):
+    def createLanguageListStore(self):
         self.languageListStore = Gtk.ListStore(str)
-        self.languageListStore.append(self.setting['language'].getLanguageList())
-        pass
+        for item in self.setting['language'].getLanguageList():
+            self.languageListStore.append([item])
 
     def initAboutPage(self):
-        self.aboutPage = Gtk.Box()
-        self.aboutPage.set_border_width(10)
-        self.aboutPage.add(Gtk.Label(self._('AboutAs')))
-        self.notebook.append_page(self.aboutPage, Gtk.Label(self._('About')))
+        table = Gtk.Table(10,3,False)
+        table.set_border_width(10)
+       # table.set_row_spacings(0)
+        table.set_col_spacings(10)
+        #application name
+        aboutTitleLabel = Gtk.Label(self._('Create AP Gui'))
+        pangoFont = Pango.FontDescription("Sans 40")
+        aboutTitleLabel.modify_font(pangoFont)
+        table.attach(aboutTitleLabel, 0,3,0,2)
+        #Description
+        self.createLabel(self._('\t Gui application for easy creating access points.\n Application allows save configuration for quickly create AP.'),[0,3,2,3],table, aligment='center')
+        #author
+        self.createLabel(self._('Author:'),[0,1,3,4],table, aligment='right')
+        self.createLabel(self._('Jakub Pelikan'),[1,3,3,4],table, aligment='left')
+        #nick
+        self.createLabel(self._('Nick:'),[0,1,4,5],table, aligment='right')
+        self.createLabel(self._('P-eli'),[1,3,4,5],table, aligment='left')
+        #email
+        self.createLabel(self._('Email:'),[0,1,5,6],table, aligment='right')
+        self.createLabel(self._('jakub.pelikan@gmail.com'),[1,3,5,6],table, aligment='left')
+        #Website
+        self.createLabel(self._('Website:'),[0,1,7,8],table, aligment='right')
+        website = Gtk.Label()
+        self.createLabel(self._(''),[1,3,7,8],table,website, aligment='left')
+        website.set_markup("<a href=\"http://github.com/p-eli/create_ap-gui\" "
+                         "title=\"Click to open website\">http://github.com/p-eli/create_ap-gui</a>")
+        ''
+        self.createLabel(self._(''),[0,1,8,9],table, aligment='right')
+        self.createLabel(self._(''),[0,1,9,10],table, aligment='right')
+
+        self.notebook.append_page(table, Gtk.Label(self._('About')))
 
     def createButton(self, text, pos, table, action, button=None):
         if button == None:
@@ -180,7 +205,7 @@ class CreateEditAp(Gtk.Window):
         button.connect("clicked", action)
         table.attach(button,pos[0],pos[1],pos[2],pos[3])
 
-    def createLabel(self, text, pos, table, interfaceLabel=None, aligmentRight=True):
+    def createLabel(self, text, pos, table, interfaceLabel=None, aligment='right'):
         if interfaceLabel == None:
             interfaceLabel = Gtk.Label(text)
         else:
@@ -188,10 +213,13 @@ class CreateEditAp(Gtk.Window):
                 interfaceLabel.set_text(text)
             except:
                 interfaceLabel.set_text('None')
-        if aligmentRight:
-            interfaceLabel.set_alignment(1, 0)
-        else:
-            interfaceLabel.set_alignment(0, 0)
+        if aligment == 'right':
+            interfaceLabel.set_alignment(1, 0.5)
+        elif aligment == 'left':
+            interfaceLabel.set_alignment(0, 0.5)
+        elif aligment == 'center':
+            interfaceLabel.set_alignment(0.5, 0.5)
+
         table.attach(interfaceLabel,pos[0],pos[1],pos[2],pos[3])
 
     def createComboBox(self, name, pos, table, default=None):
