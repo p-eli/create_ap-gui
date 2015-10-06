@@ -8,5 +8,5 @@ Icon=createApGui.png
 Terminal=false
 Type=Application
 StartupNotify=false
-Comment=FIT Information System
+Comment=Creating AP GUI
 Name[en_US]=createAp-Gui
