@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 __author__ = 'Jakub Pelikan'
-from gi.repository import Gtk, Pango
+from gi.repository import Gtk, Pango,GObject
 from createApGui.terminalInterface import TerminalInterface
 import re
 class CreateEditAp(Gtk.Window):
@@ -23,7 +23,6 @@ class CreateEditAp(Gtk.Window):
         self.notebook = Gtk.Notebook()
         self.add(self.notebook)
         self.initStatusPage()
-        self.initInterfaceList()
         self.initEditPage()
         self.initCreatePage()
         self.initSettingPage()
@@ -35,7 +34,7 @@ class CreateEditAp(Gtk.Window):
         table.set_row_spacings(5)
         table.set_col_spacings(20)
         #status label
-        self.statusTitleLabel = Gtk.Label(self.setting['runningAp'].status)
+        self.statusTitleLabel = Gtk.Label(self.setting['runningAp'].status['text'])
         pangoFont = Pango.FontDescription("Sans 40")
         self.statusTitleLabel.modify_font(pangoFont)
         table.attach(self.statusTitleLabel, 0,3,0,3)
@@ -121,6 +120,11 @@ class CreateEditAp(Gtk.Window):
         self.notebook.append_page(table, Gtk.Label(self._('New AP')))
 
     def initEditPage(self):
+        self.interfaceListSignal = GObject.GObject()
+        GObject.signal_new("interfaceListMsg", self.interfaceListSignal, GObject.SIGNAL_RUN_FIRST,
+                   GObject.TYPE_NONE, ())
+        self.interfaceListSignal.connect('interfaceListMsg', self.readInterfaceList)
+        self.initInterfaceList()
         table = Gtk.Table(10,3,True)
         table.set_border_width(10)
         table.set_row_spacings(10)
@@ -250,13 +254,12 @@ class CreateEditAp(Gtk.Window):
 
     def initInterfaceList(self):
         self.interfaceListStore = Gtk.ListStore(str)
-        self.interface = TerminalInterface(self.readInterfaceList)
+        self.interface = TerminalInterface(self.interfaceListSignal, "interfaceListMsg")
         self.interface.command = ['ifconfig']
         self.interface.start()
 
-    def readInterfaceList(self):
+    def readInterfaceList(self, signal):
         output = self.interface.read()
-
         if self.interface.is_alive():
             self.interface.stop()
         interfacesList = []
@@ -267,7 +270,6 @@ class CreateEditAp(Gtk.Window):
                 interfacesList.append(stra)
         for interfaceItem in interfacesList:
             self.interfaceListStore.append([interfaceItem])
-
 
     def refreshInterfaceList(self, button):
         self.initInterfaceList()
@@ -282,9 +284,6 @@ class CreateEditAp(Gtk.Window):
         return None
 
     def createAP(self, button=None, createAp=None):
-        if self.setting['runningAp'].errorMsg['newMsg']:
-            self.setting['runningAp'].stopAp()
-            self.setting['runningAp'].createNew()
         if not self.setting['runningAp'].status['active']:
             if createAp == None:
                 selection = self.treeview.get_selection()
@@ -299,16 +298,18 @@ class CreateEditAp(Gtk.Window):
             self.sendErrorDialog(self._('AP is running'), self._('Before start new one, turn off running AP.'))
         Gtk.Notebook.do_change_current_page(self.notebook,-self.notebook.get_current_page())
 
-    def updateStatusPage(self):
-        self.statusTitleLabel.set_text(self.setting['runningAp'].status['text'])
-        self.statusNameAp.set_text(self.setting['runningAp'].activeAp['name'])
-        self.statusInterface1.set_text(self.setting['runningAp'].activeAp['interface1'])
-        self.statusInterface2.set_text(self.setting['runningAp'].activeAp['interface2'])
-        self.statusReciving.set_text('None')
-        self.statusTotalReciving.set_text('None')
-        self.statusSending.set_text('None')
-        self.statusTotalSending.set_text('None')
-        self.connectDisconectButton.set_label(self.setting['runningAp'].status['button'])
+    def updateStatusPage(self, signal=None):
+        if self.statusTitleLabel.get_text() != self.setting['runningAp'].status['text']:
+            self.statusTitleLabel.set_text(self.setting['runningAp'].status['text'])
+            self.statusNameAp.set_text(self.setting['runningAp'].activeAp['name'])
+            self.statusInterface1.set_text(self.setting['runningAp'].activeAp['interface1'])
+            self.statusInterface2.set_text(self.setting['runningAp'].activeAp['interface2'])
+            self.statusReciving.set_text('None')
+            self.statusTotalReciving.set_text('None')
+            self.statusSending.set_text('None')
+            self.statusTotalSending.set_text('None')
+            self.connectDisconectButton.set_label(self.setting['runningAp'].status['button'])
+
 
     def saveCreateAction(self, button=None):
         try:

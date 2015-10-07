@@ -53,9 +53,9 @@ class TrayRightClickMenu(Gtk.Menu):
             self.createMenuItem(item[0], self.createAp, menu)
 
     def createAp(self, button):
-        if self.setting['runningAp'].errorMsg['newMsg'] or self.setting['runningAp'].status['active']:
-            self.setting['runningAp'].stopAp()
-        if not self.setting['runningAp'].status['active']:
+      #  if self.setting['runningAp'].errorMsg['newMsg'] or self.setting['runningAp'].status['active']:
+       #     self.setting['runningAp'].stopAp()
+        #if not self.setting['runningAp'].status['active']:
             self.setting['runningAp'].activeAp = self.setting['userSetting'].searchAp(button.get_label())
             self.setting['runningAp'].runAp()
 
