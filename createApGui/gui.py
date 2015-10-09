@@ -41,8 +41,7 @@ class Gui():
         self.start()
 
     def start(self):
-
-        tray = TrayIcon(self.setting)
+        self.tray = TrayIcon(self.setting)
         Gtk.main()
 
     def getPath(self):

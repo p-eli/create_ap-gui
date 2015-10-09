@@ -21,6 +21,7 @@ class CreateEditAp(Gtk.Window):
 
     def show(self, page=None):
         self.show_all()
+        self.updateStatusPage()
         if page != None:
             Gtk.Notebook.do_change_current_page(self.notebook,page-self.notebook.get_current_page())
 
@@ -75,9 +76,17 @@ class CreateEditAp(Gtk.Window):
         self.statusTotalSending = Gtk.Label()
         self.createLabel(self._('None'), [2,3,7,8], table, self.statusTotalSending, aligment='left')
         #connect / disconect button
-        self.connectDisconectButton = Gtk.Button()
-        self.createButton(self._('Connect'),[2,3,9,10],table,self.connectDisconnect,self.connectDisconectButton )
-        self.updateStatusPage()
+        self.errorButton = Gtk.Button()
+        self.createButton(self._('Error details'),[2,3,9,10],table,self.connectDisconnect,self.errorButton)
+        #connect / disconect button
+        self.connectButton = Gtk.Button()
+        self.createButton(self._('Connect'),[2,3,9,10],table,self.connectDisconnect,self.connectButton)
+        #connect / disconect button
+        self.disconnectButton = Gtk.Button()
+        self.createButton(self._('Disconnect'),[2,3,9,10],table,self.connectDisconnect,self.disconnectButton)
+
+        #self.updateStatusPage()
+
         self.notebook.append_page(table, Gtk.Label(self._('Running AP')))
 
     def connectDisconnect(self, button=None):
@@ -135,7 +144,7 @@ class CreateEditAp(Gtk.Window):
         table.set_border_width(10)
         table.set_row_spacings(10)
         table.set_col_spacings(10)
-        self.store = Gtk.ListStore(str, str, str)
+        self.store = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING, GObject.TYPE_STRING)
         self.setting['userSetting'].getApStore(self.store)
         self.treeview = Gtk.TreeView(model=self.store)
         self.createTextViewColumn([self._('AP name'),self._('Interface1'),self._('Interface2')])
@@ -207,10 +216,11 @@ class CreateEditAp(Gtk.Window):
         self.notebook.append_page(table, Gtk.Label(self._('About')))
 
     def createButton(self, text, pos, table, action, button=None):
-        if button == None:
-            button = Gtk.Button.new_with_mnemonic(text)
-        else:
-            button.set_label(text)
+        if text != None:
+            if button == None:
+                button = Gtk.Button.new_with_mnemonic(text)
+            else:
+                button.set_label(text)
         button.connect("clicked", action)
         table.attach(button,pos[0],pos[1],pos[2],pos[3])
 
@@ -305,7 +315,7 @@ class CreateEditAp(Gtk.Window):
         Gtk.Notebook.do_change_current_page(self.notebook,-self.notebook.get_current_page())
 
     def updateStatusPage(self, signal=None):
-        if self.statusTitleLabel.get_text() != self.setting['runningAp'].status['text']:
+       # if self.statusTitleLabel.get_text() != self.setting['runningAp'].status['text']:
             self.statusTitleLabel.set_text(self.setting['runningAp'].status['text'])
             self.statusNameAp.set_text(self.setting['runningAp'].activeAp['name'])
             self.statusInterface1.set_text(self.setting['runningAp'].activeAp['interface1'])
@@ -314,7 +324,18 @@ class CreateEditAp(Gtk.Window):
             self.statusTotalReciving.set_text('None')
             self.statusSending.set_text('None')
             self.statusTotalSending.set_text('None')
-            self.connectDisconectButton.set_label(self.setting['runningAp'].status['button'])
+            if self.setting['runningAp'].status['active']:
+                self.disconnectButton.show()
+                self.connectButton.hide()
+                self.errorButton.hide()
+            elif self.setting['runningAp'].errorMsg['newMsg']:
+                self.disconnectButton.hide()
+                self.connectButton.hide()
+                self.errorButton.show()
+            else:
+                self.disconnectButton.hide()
+                self.connectButton.show()
+                self.errorButton.hide()
 
 
     def saveCreateAction(self, button=None):

@@ -58,6 +58,7 @@ class RunningAp():
         self.interfaceThread.stop()
         self.stopStatistic()
         self.reInit()
+       # self.updatingStatus()
 
     def newCmdMsg(self, signal=None):
         self.interfaceLock.acquire()
@@ -76,9 +77,9 @@ class RunningAp():
             self.__status['text'] = self._('INTERFACE-DISABLED')
       #  elif 'AP-DISABLED' in msg or 'done' in msg:
         #    self.reInit()
-      #  else:
-       #     self.lock.release()
-        #    return
+     #   else:
+      #      self.interfaceLock.release()
+       #     return
 
         self.interfaceLock.release()
         self.updatingStatus()
@@ -120,6 +121,7 @@ class RunningAp():
         self.statisticThread.stop()
 
     def updatingStatus(self):
+        print('update status jebat')
         if self.updatingPage['statusWindow']:
             self.updatingPage['statusWindow']()
         elif self.updatingPage['tray']:
