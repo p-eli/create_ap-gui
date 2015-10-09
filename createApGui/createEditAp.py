@@ -1,9 +1,16 @@
 #!/usr/bin/python3
 __author__ = 'Jakub Pelikan'
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Pango,GObject
 from createApGui.terminalInterface import TerminalInterface
 import re
+
+
+
 class CreateEditAp(Gtk.Window):
+
+    GObject.signal_new("interfaceListMsg", GObject.GObject, GObject.SIGNAL_RUN_FIRST, GObject.TYPE_NONE, ())
     def __init__(self, setting):
         Gtk.Window.__init__(self, title='Create AP')
         self.setting = setting
@@ -121,10 +128,9 @@ class CreateEditAp(Gtk.Window):
 
     def initEditPage(self):
         self.interfaceListSignal = GObject.GObject()
-        GObject.signal_new("interfaceListMsg", self.interfaceListSignal, GObject.SIGNAL_RUN_FIRST,
-                   GObject.TYPE_NONE, ())
         self.interfaceListSignal.connect('interfaceListMsg', self.readInterfaceList)
         self.initInterfaceList()
+
         table = Gtk.Table(10,3,True)
         table.set_border_width(10)
         table.set_row_spacings(10)

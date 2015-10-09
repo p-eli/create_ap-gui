@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 __author__ = 'Jakub Pelikan'
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 from  createApGui.trayRightClickMenu import TrayRightClickMenu
 from createApGui.createEditAp import CreateEditAp

@@ -5,6 +5,8 @@ from createApGui.userSetting import UserSetting
 from createApGui.createEditAp import CreateEditAp
 from createApGui.language import Languge
 from createApGui.runningAp import RunningAp
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 import os
 
