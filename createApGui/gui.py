@@ -41,6 +41,7 @@ class Gui():
         self.start()
 
     def start(self):
+        self.checkUpdate()
         self.tray = TrayIcon(self.setting)
         Gtk.main()
 
@@ -50,3 +51,7 @@ class Gui():
             root = os.path.realpath(root)
         return(os.path.dirname (os.path.abspath (root)))
 
+    def checkUpdate(self):
+        if self.setting['userSetting'].version['autoCheck']:
+            import subprocess
+            subprocess.call('pip install --upgrade create-ap-gui', shell=True,stdout=subprocess.PIPE)

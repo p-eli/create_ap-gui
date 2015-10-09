@@ -170,6 +170,10 @@ class CreateEditAp(Gtk.Window):
         self.languageComboBox = Gtk.ComboBox.new_with_model(self.languageListStore)
         defaultPosition = self.setting['language'].getLanguageList().index(self.setting['userSetting'].language['name'])
         self.createComboBox(self.languageComboBox, [1,3,0,1],table , defaultPosition)
+        #Automatic check update
+        self.createLabel(self._('Automatic update'),[0,1,1,2],table, aligment='right')
+        self.createSwitchButton([2,3,1,2], table, self.automaticCheckUpdate, self.setting['userSetting'].version['autoCheck'])
+        #save
         self.createButton(self._('Save'),[2,3,9,10], table, self.saveSetting)
         self.notebook.append_page(table, Gtk.Label(self._('Setting')))
 
@@ -195,15 +199,18 @@ class CreateEditAp(Gtk.Window):
         table.attach(aboutTitleLabel, 0,3,0,2)
         #Description
         self.createLabel(self._('\t Gui application for easy creating access points.\n Application allows save configuration for quickly create AP.'),[0,3,2,3],table, aligment='center')
+        #version
+        self.createLabel(self._('Version:'),[0,1,3,4],table, aligment='right')
+        self.createLabel(self.setting['userSetting'].version['version'],[1,3,3,4],table, aligment='left')
         #author
-        self.createLabel(self._('Author:'),[0,1,3,4],table, aligment='right')
-        self.createLabel(self._('Jakub Pelikan'),[1,3,3,4],table, aligment='left')
+        self.createLabel(self._('Author:'),[0,1,4,5],table, aligment='right')
+        self.createLabel(self._('Jakub Pelikan'),[1,3,4,5],table, aligment='left')
         #nick
-        self.createLabel(self._('Nick:'),[0,1,4,5],table, aligment='right')
-        self.createLabel(self._('P-eli'),[1,3,4,5],table, aligment='left')
+        self.createLabel(self._('Nick:'),[0,1,5,6],table, aligment='right')
+        self.createLabel(self._('P-eli'),[1,3,5,6],table, aligment='left')
         #email
-        self.createLabel(self._('Email:'),[0,1,5,6],table, aligment='right')
-        self.createLabel(self._('jakub.pelikan@gmail.com'),[1,3,5,6],table, aligment='left')
+        self.createLabel(self._('Email:'),[0,1,6,7],table, aligment='right')
+        self.createLabel(self._('jakub.pelikan@gmail.com'),[1,3,6,7],table, aligment='left')
         #Website
         self.createLabel(self._('Website:'),[0,1,7,8],table, aligment='right')
         website = Gtk.Label()
@@ -266,6 +273,18 @@ class CreateEditAp(Gtk.Window):
             column_name.set_sort_column_id(id)
             self.treeview.append_column(column_name)
             id=id+1
+
+    def automaticCheckUpdate(self, switch, gparam):
+        if switch.get_active():
+            self.setting['userSetting'].version['autoCheck'] = True
+        else:
+            self.setting['userSetting'].version['autoCheck'] = False
+
+    def createSwitchButton(self,pos, table, function,active=True):
+        switch = Gtk.Switch()
+        switch.connect("notify::active", function)
+        switch.set_active(active)
+        table.attach(switch ,pos[0],pos[1],pos[2],pos[3])
 
     def initInterfaceList(self):
         self.interfaceListStore = Gtk.ListStore(str)

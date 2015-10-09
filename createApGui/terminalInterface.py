@@ -74,3 +74,4 @@ class Statistic(threading.Thread):
 
     def stop(self):
         self.__running = False
+

@@ -4,6 +4,7 @@ import pickle
 import os
 class UserSetting():
     def __init__(self):
+        self.version = {'version':'1.2.2', 'autoCheck':True}
         self.language = {'name':'English_en', 'fileName':'lang', 'path':'lang'}
         self.saveAp = []
         try:
@@ -42,10 +43,13 @@ class UserSetting():
         try:
             with open(os.path.join(self.saveFile['path'],self.saveFile['fileName']), 'rb') as file:
                 loadSetting = pickle.load(file)
-                if loadSetting.language['name'] == 'English':
-                    self.saveAp = loadSetting.saveAp
-                    return self
-                else:
+                try:
+                    loadSetting.version
                     return loadSetting
+                except:
+                    self.saveAp = loadSetting.saveAp
+                    self.save()
+                    return self
+
         except FileNotFoundError:
             return self
