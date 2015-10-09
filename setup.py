@@ -11,7 +11,7 @@ def getDataFiles():
 
 setup(
     name='create_ap-gui',
-    version='1.2.3',
+    version='1.2.4',
     description='Easy create Access point',
     long_description='Gui application for easy creating access points. Application allows save configuration for quickly create AP.',
     url='-',
