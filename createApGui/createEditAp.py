@@ -16,7 +16,8 @@ class CreateEditAp(Gtk.Window):
         self.setting = setting
         self._ = self.setting['language'].gettext
         self.initWindow()
-        self.setting['runningAp'].updatingPage['statusWindow'] = self.updateStatusPage
+
+        self.setting['runningAp'].registerPage(self.updateStatusPage)
         self.set_default_icon_from_file(self.setting['iconPath'])
 
     def show(self, page=None):
@@ -84,8 +85,6 @@ class CreateEditAp(Gtk.Window):
         #connect / disconect button
         self.disconnectButton = Gtk.Button()
         self.createButton(self._('Disconnect'),[2,3,9,10],table,self.connectDisconnect,self.disconnectButton)
-
-        #self.updateStatusPage()
 
         self.notebook.append_page(table, Gtk.Label(self._('Running AP')))
 
@@ -320,10 +319,10 @@ class CreateEditAp(Gtk.Window):
             self.statusNameAp.set_text(self.setting['runningAp'].activeAp['name'])
             self.statusInterface1.set_text(self.setting['runningAp'].activeAp['interface1'])
             self.statusInterface2.set_text(self.setting['runningAp'].activeAp['interface2'])
-            self.statusReciving.set_text('None')
-            self.statusTotalReciving.set_text('None')
-            self.statusSending.set_text('None')
-            self.statusTotalSending.set_text('None')
+            self.statusReciving.set_text(self.setting['runningAp'].receiving)
+            self.statusTotalReciving.set_text(self.setting['runningAp'].totalReceived)
+            self.statusSending.set_text(self.setting['runningAp'].sending)
+            self.statusTotalSending.set_text(self.setting['runningAp'].totalSent)
             if self.setting['runningAp'].status['active']:
                 self.disconnectButton.show()
                 self.connectButton.hide()
@@ -386,6 +385,6 @@ class CreateEditAp(Gtk.Window):
         self.apPassword.set_visibility(not stat.get_active())
 
     def on_destroy(self, widget):
-        self.setting['runningAp'].updatingPage['statusWindow'] = None
+        self.setting['runningAp'].unregisterPage()
         self.setting['createEditAp'] = None
         self.destroy()

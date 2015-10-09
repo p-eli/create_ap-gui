@@ -9,6 +9,9 @@ from gi.repository import GObject
 
 signalNewMsg = 'newMsg'
 signalUpdateStatistic = 'updateStatistic'
+regexRX = re.compile('RX[^\(]*[^\)]*\)')
+regexTX = re.compile('TX[^\(]*[^\)]*\)')
+regexBrackets = re.compile('[^\(]*\(([^\)]*)\)')
 
 class RunningAp():
     GObject.signal_new(signalNewMsg, GObject.GObject, GObject.SIGNAL_RUN_FIRST, GObject.TYPE_NONE, ())
@@ -32,7 +35,7 @@ class RunningAp():
         self.__activeAp = {'name':'None', 'passwd':'None', 'interface1':'None', 'interface2':'None'}
         self.__status = {'active':False,'text':self._('No active AP'),'button':self._('Connect')}
         self.errorMsg = {'newMsg':False,'title':None, 'text':None}
-        self.__statistic = {'startReceived':None,'startSending':None,'reciving':0, 'totalReceived':0, 'sending':0, 'totalSent':0}
+        self.__statistic = {'startReceived':None,'startSending':None,'receiving':'0', 'totalReceived':'0', 'sending':'0', 'totalSent':'0'}
         #init Thread
         self.interfaceThread = TerminalInterface(self.mysignal,signalNewMsg)
         self.statisticThread = Statistic(self.mysignal,signalUpdateStatistic)
@@ -51,8 +54,8 @@ class RunningAp():
             self.__status['button'] = self._('Disconnect')
             self.__status['active'] = True
         self.interfaceLock.release()
-        self.updatingStatus()
         self.runStatistic()
+        self.updatingStatus()
 
     def stopAp(self):
         self.interfaceThread.stop()
@@ -86,46 +89,46 @@ class RunningAp():
 
     def runStatistic(self):
         if self.__status['active']:
-            print('run statistic')
             self.statisticThread.command = ['ifconfig'+' '+self.__activeAp['interface1']]
             self.statisticThread.start()
 
     def updateStatistic(self, signal=None):
-        print('update statistic')
         msg = self.statisticThread.read()
         if 'RX' in msg and 'bytes' in msg:
             self.statisticLock.acquire()
-            try:
-                line = re.search('RX[^\(]*[^\)]*\)', msg).group(0)
-                print(line)
-                value = line.find('\([\)]*)')
-           #     value = re.search('\(*[^\)]*', line).group(0)
-                print(value)
-            except AttributeError:
-                pass
-            if self.__statistic['startReceived'] == None:
-                pass
-                #todo self.__statistic['startReceived'] ==
+            line = re.search(regexRX, msg).group(0)
+            line = re.sub(regexBrackets,'\\1', line)
+            self.__statistic['totalReceived'] = line
+            #if self.__statistic['startReceived'] == None:
+             #   self.__statistic['startReceived'] = line
             self.statisticLock.release()
 
         if 'TX' in msg and 'bytes' in msg:
             self.statisticLock.acquire()
-
-            if self.__statistic['startSending'] == None:
-                pass
+            line = re.search(regexTX, msg).group(0)
+            line = re.sub(regexBrackets,'\\1', line)
+            self.__statistic['totalSent'] = line
+          #  if self.__statistic['startSending'] == None:
                 #todo self.__statistic['startReceived'] ==
             self.statisticLock.release()
-        #self.updatingStatus()
+        self.updatingStatus()
 
     def stopStatistic(self):
         self.statisticThread.stop()
 
     def updatingStatus(self):
-        print('update status jebat')
         if self.updatingPage['statusWindow']:
             self.updatingPage['statusWindow']()
         elif self.updatingPage['tray']:
              self.updatingPage['tray']()
+
+    def registerPage(self, page):
+        self.updatingPage['statusWindow'] = page
+        self.runStatistic()
+
+    def unregisterPage(self):
+        self.updatingPage['statusWindow'] = None
+        self.stopStatistic()
 
     @property
     def activeAp(self):
@@ -150,10 +153,21 @@ class RunningAp():
         pass
 
     @property
-    def statistic(self):
-        return self.__statistic
+    def totalReceived(self):
+        return self.__statistic['totalReceived']
 
-    @statistic.setter
-    def statistic(self):
-        pass
+    @property
+    def receiving(self):
+        return self.__statistic['receiving']
+
+    @property
+    def sending(self):
+        return self.__statistic['sending']
+
+    @property
+    def totalSent(self):
+        return self.__statistic['totalSent']
+
+
+
 
