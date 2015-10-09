@@ -4,7 +4,7 @@ import pickle
 import os
 class UserSetting():
     def __init__(self):
-        self.version = {'version':'1.2.2', 'autoCheck':True}
+        self.version = {'version':'1.2.3', 'autoCheck':True}
         self.language = {'name':'English_en', 'fileName':'lang', 'path':'lang'}
         self.saveAp = []
         try:
