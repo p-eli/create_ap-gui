@@ -89,14 +89,14 @@ class RunningAp():
 
     def runStatistic(self):
         if self.__status['active']:
+            self.statisticThread = Statistic(self.mysignal,signalUpdateStatistic)
             self.statisticThread.command = ['ifconfig'+' '+self.__activeAp['interface1']]
             self.statisticThread.start()
 
     def updateStatistic(self, signal=None):
         msg = self.statisticThread.read()
-        if 'error' in msg:
+        if 'Device not found' in msg:
             self.stopStatistic()
-            #todo some error msg
         else:
             if 'RX' in msg and 'bytes' in msg:
                 self.statisticLock.acquire()
