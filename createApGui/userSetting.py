@@ -2,9 +2,11 @@
 __author__ = 'Jakub Pelikan'
 import pickle
 import os
+from createApGui import __version__
+
 class UserSetting():
     def __init__(self):
-        self.version = {'version':'1.2.4', 'autoCheck':True}
+        self.version = {'version':__version__, 'autoCheck':True}
         self.language = {'name':'English_en', 'fileName':'lang', 'path':'lang'}
         self.saveAp = []
         try:
@@ -44,8 +46,14 @@ class UserSetting():
             with open(os.path.join(self.saveFile['path'],self.saveFile['fileName']), 'rb') as file:
                 loadSetting = pickle.load(file)
                 try:
-                    loadSetting.version
-                    return loadSetting
+                    if loadSetting.version == __version__:
+                        return loadSetting
+                    else:
+                        self.saveAp = loadSetting.saveAp
+                        self.language = loadSetting.language
+                        self.version = loadSetting.version
+                        self.save()
+                        return self
                 except:
                     self.saveAp = loadSetting.saveAp
                     self.save()

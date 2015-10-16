@@ -94,24 +94,23 @@ class RunningAp():
 
     def updateStatistic(self, signal=None):
         msg = self.statisticThread.read()
-        if 'RX' in msg and 'bytes' in msg:
-            self.statisticLock.acquire()
-            line = re.search(regexRX, msg).group(0)
-            line = re.sub(regexBrackets,'\\1', line)
-            self.__statistic['totalReceived'] = line
-            #if self.__statistic['startReceived'] == None:
-             #   self.__statistic['startReceived'] = line
-            self.statisticLock.release()
-
-        if 'TX' in msg and 'bytes' in msg:
-            self.statisticLock.acquire()
-            line = re.search(regexTX, msg).group(0)
-            line = re.sub(regexBrackets,'\\1', line)
-            self.__statistic['totalSent'] = line
-          #  if self.__statistic['startSending'] == None:
-                #todo self.__statistic['startReceived'] ==
-            self.statisticLock.release()
-        self.updatingStatus()
+        if 'error' in msg:
+            self.stopStatistic()
+            #todo some error msg
+        else:
+            if 'RX' in msg and 'bytes' in msg:
+                self.statisticLock.acquire()
+                line = re.search(regexRX, msg).group(0)
+                line = re.sub(regexBrackets,'\\1', line)
+                self.__statistic['totalReceived'] = line
+                self.statisticLock.release()
+            if 'TX' in msg and 'bytes' in msg:
+                self.statisticLock.acquire()
+                line = re.search(regexTX, msg).group(0)
+                line = re.sub(regexBrackets,'\\1', line)
+                self.__statistic['totalSent'] = line
+                self.statisticLock.release()
+            self.updatingStatus()
 
     def stopStatistic(self):
         self.statisticThread.stop()
@@ -138,8 +137,14 @@ class RunningAp():
     def activeAp(self, data):
         self.__activeAp['name'] = data[0]
         self.__activeAp['passwd'] = data[1]
-        self.__activeAp['interface1'] = data[2]
-        self.__activeAp['interface2'] = data[3]
+        if data[2] != None:
+            self.__activeAp['interface1'] = data[2]
+        else:
+            self.__activeAp['interface1'] = ''
+        if data[3] != None:
+            self.__activeAp['interface2'] = data[3]
+        else:
+            self.__activeAp['interface2'] = ''
 
     @property
     def status(self):

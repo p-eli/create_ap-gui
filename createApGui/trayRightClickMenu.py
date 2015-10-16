@@ -3,7 +3,7 @@ __author__ = 'Jakub Pelikan'
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
-from createApGui.createEditAp import CreateEditAp
+from createApGui.mainWindow import MainWindow
 
 
 class TrayRightClickMenu(Gtk.Menu):
@@ -75,7 +75,7 @@ class TrayRightClickMenu(Gtk.Menu):
 
     def newAp(self,page):
         if self.setting['createEditAp'] == None:
-            self.setting['createEditAp'] = CreateEditAp(self.setting)
+            self.setting['createEditAp'] = MainWindow(self.setting)
         self.setting['createEditAp'].show(page)
 
     def disconnectAp(self, button):

@@ -2,8 +2,8 @@
 __author__ = 'Jakub Pelikan'
 from createApGui.trayIcon import TrayIcon
 from createApGui.userSetting import UserSetting
-from createApGui.createEditAp import CreateEditAp
-from createApGui.language import Languge
+from createApGui.mainWindow import MainWindow
+from createApGui.language import Language
 from createApGui.runningAp import RunningAp
 import gi
 gi.require_version('Gtk', '3.0')
@@ -12,8 +12,6 @@ import os
 
 class Gui():
     def __init__(self):
-
-
         if os.geteuid() != 0:
             self.window = Gtk.Window()
             dialog = Gtk.MessageDialog(self.window, 0, Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, 'Root privileges are required for running Create AP')
@@ -24,7 +22,7 @@ class Gui():
             self.setting={'userSetting':UserSetting(),'lang':None, 'path':self.getPath(), 'runningAp':None, 'createEditAp':None, 'iconPath':os.path.join(self.getPath(),'image','icon.png')}
 
             self.setting['userSetting'] = self.setting['userSetting'].load()
-            self.setting['language'] = Languge(self.setting)
+            self.setting['language'] = Language(self.setting)
             self.setting['runningAp'] = RunningAp(self.setting)
 
             if not os.path.exists(self.setting['userSetting'].saveFile['path']):
@@ -36,7 +34,7 @@ class Gui():
 
     def firstStart(self):
         self.setting['userSetting'].save()
-        self.setting['createEditAp'] = CreateEditAp(self.setting)
+        self.setting['createEditAp'] = MainWindow(self.setting)
         self.setting['createEditAp'].show()
         self.start()
 

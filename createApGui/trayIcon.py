@@ -4,7 +4,7 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 from  createApGui.trayRightClickMenu import TrayRightClickMenu
-from createApGui.createEditAp import CreateEditAp
+from createApGui.mainWindow import MainWindow
 
 class TrayIcon(Gtk.StatusIcon):
     def __init__(self, setting):
@@ -23,5 +23,5 @@ class TrayIcon(Gtk.StatusIcon):
 
     def onLeftClick(self, icon):
         if self.setting['createEditAp'] == None:
-            self.setting['createEditAp'] = CreateEditAp(self.setting)
+            self.setting['createEditAp'] = MainWindow(self.setting)
             self.setting['createEditAp'].show()

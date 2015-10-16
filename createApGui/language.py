@@ -4,7 +4,7 @@ import gettext
 import os
 
 
-class Languge():
+class Language():
     def __init__(self, setting):
         self.setting = setting
         self.setLanguage()

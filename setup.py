@@ -2,6 +2,7 @@
 __author__ = 'Jakub Pelikan'
 from setuptools import setup
 import sys
+from createApGui import __version__
 
 def getDataFiles():
     if sys.platform == 'linux':
@@ -11,7 +12,7 @@ def getDataFiles():
 
 setup(
     name='create_ap-gui',
-    version='1.2.4',
+    version=__version__,
     description='Easy create Access point',
     long_description='Gui application for easy creating access points. Application allows save configuration for quickly create AP.',
     url='-',
@@ -31,7 +32,6 @@ setup(
             'create_ap-gui = createApGui.__main__:main'
         ]
     },
-    #install_requires=['gi'],
     data_files= getDataFiles(),
 )
 
