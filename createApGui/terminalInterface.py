@@ -54,11 +54,12 @@ class Statistic(threading.Thread):
 
     def read(self):
         self.__lock.acquire()
-        if self.__output != '':
+        try:
             output = self.__output[0].decode('utf-8')
-        else:
+        except:
             output = ''
-        self.__output = ''
+        finally:
+            self.__output = ''
         self.__lock.release()
         return output
 

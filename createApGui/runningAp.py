@@ -67,6 +67,7 @@ class RunningAp():
         self.interfaceLock.acquire()
         msg = self.interfaceThread.read()
         if 'ERROR:' in msg or 'command not found' in msg:
+            self.stopStatistic()
             self.errorMsg['newMsg'] = True
             self.errorMsg['title'] = self._('Create failed')
             self.errorMsg['text'] = msg
@@ -95,7 +96,7 @@ class RunningAp():
 
     def updateStatistic(self, signal=None):
         msg = self.statisticThread.read()
-        if 'Device not found' in msg:
+        if 'Device not found' in msg or 'ERROR:' in msg:
             self.stopStatistic()
         else:
             if 'RX' in msg and 'bytes' in msg:
