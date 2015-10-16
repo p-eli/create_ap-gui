@@ -135,6 +135,8 @@ class RunningAp():
 
     @activeAp.setter
     def activeAp(self, data):
+        if self.errorMsg['newMsg']:
+            self.reInit()
         self.__activeAp['name'] = data[0]
         self.__activeAp['passwd'] = data[1]
         if data[2] != None:
