@@ -1,0 +1,229 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR jakub.pelikan@gmail.com, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.2\n"
+"Report-Msgid-Bugs-To: jakub.pelikan@gmail.com\n"
+"POT-Creation-Date: 2015-10-05 21:36+0200\n"
+"PO-Revision-Date: 2017-04-15 01:47+0200\n"
+"Last-Translator: Richard Rein <partner@rein-media.com>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: Rein Media\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#: createApGui/createEditAp.py:44 createApGui/createEditAp.py:94
+#: createApGui/createEditAp.py:131
+msgid "AP name"
+msgstr "Name des  Access-Point:"
+
+#: createApGui/createEditAp.py:48 createApGui/createEditAp.py:107
+msgid "Wifi interface"
+msgstr "WLAN-Schnittstelle:"
+
+#: createApGui/createEditAp.py:52 createApGui/createEditAp.py:112
+msgid "Interface with Internet"
+msgstr "Netzwerk-Schnittstelle:"
+
+#: createApGui/createEditAp.py:56
+msgid "Receiving"
+msgstr "Empfange aktuell:"
+
+#: createApGui/createEditAp.py:58 createApGui/createEditAp.py:62
+#: createApGui/createEditAp.py:66 createApGui/createEditAp.py:70
+msgid "None"
+msgstr "keine Daten vorhanden"
+
+#: createApGui/createEditAp.py:60
+msgid "Total Received"
+msgstr "Gesamt empfangen:"
+
+#: createApGui/createEditAp.py:64
+msgid "Sending"
+msgstr "Sende aktuell:"
+
+#: createApGui/createEditAp.py:68
+msgid "Total Sent"
+msgstr "Gesamt gesendet:"
+
+#: createApGui/createEditAp.py:73 createApGui/runningAp.py:10
+msgid "Connect"
+msgstr "Verbunden"
+
+#: createApGui/createEditAp.py:75
+msgid "Running AP"
+msgstr "AP-Status"
+
+#: createApGui/createEditAp.py:99
+msgid "Password"
+msgstr "Passwort:"
+
+#: createApGui/createEditAp.py:104
+msgid "Show password"
+msgstr "Passwort anzeigen"
+
+#: createApGui/createEditAp.py:117
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+#: createApGui/createEditAp.py:119
+msgid "Only Create"
+msgstr "AP einmalig anlegen"
+
+#: createApGui/createEditAp.py:120
+msgid "Save and Create"
+msgstr "AP anlegen und speichern"
+
+#: createApGui/createEditAp.py:121
+msgid "New AP"
+msgstr "AP-Verwaltung"
+
+#: createApGui/createEditAp.py:131
+msgid "Interface1"
+msgstr "WLAN-Schnittstelle:"
+
+#: createApGui/createEditAp.py:131
+msgid "Interface2"
+msgstr "Netzwerk-Schnittstelle:"
+
+#: createApGui/createEditAp.py:137
+msgid "Delete"
+msgstr "Access-Point entfernen"
+
+#: createApGui/createEditAp.py:139
+msgid "Create"
+msgstr "Access-Point starten"
+
+#: createApGui/createEditAp.py:141 createApGui/trayRightClickMenu.py:44
+msgid "Create AP"
+msgstr "Access-Points anlegen"
+
+#: createApGui/createEditAp.py:149
+msgid "Language"
+msgstr "Sprache:"
+
+#: createApGui/createEditAp.py:155
+msgid "Save"
+msgstr "speichern"
+
+#: createApGui/createEditAp.py:156 createApGui/trayRightClickMenu.py:37
+msgid "Setting"
+msgstr "Einstellungen"
+
+#: createApGui/createEditAp.py:173
+msgid "Create AP Gui"
+msgstr "Create_AP-GUI"
+
+#: createApGui/createEditAp.py:178
+msgid ""
+"\t Gui application for easy creating access points.\n"
+" Application allows save configuration for quickly create AP."
+msgstr ""
+"\t Eine grafische Oberfläche zum einfachen anlegen von Access Points,\n"
+"Hot-Spots, WLAN-Repeatern. Die Software erlaubt einfaches und sicheres \n"
+"Anlegen verschiedener Verbindungen und kann diese in einer Liste speichern."
+
+#: createApGui/createEditAp.py:180
+msgid "Author:"
+msgstr "Autoren:"
+
+#: createApGui/createEditAp.py:181
+msgid "Jakub Pelikan"
+msgstr "Jakub Pelikan (Programm-Autor), Richard Rein (Übersetzer Deutsch)"
+
+#: createApGui/createEditAp.py:183
+msgid "Nick:"
+msgstr "Nick:"
+
+#: createApGui/createEditAp.py:184
+msgid "P-eli"
+msgstr "P-eli"
+
+#: createApGui/createEditAp.py:186
+msgid "Email:"
+msgstr "eMail:"
+
+#: createApGui/createEditAp.py:187
+msgid "jakub.pelikan@gmail.com"
+msgstr "jakub.pelikan@gmail.com"
+
+#: createApGui/createEditAp.py:189
+msgid "Website:"
+msgstr "Webseite"
+
+#: createApGui/createEditAp.py:196 createApGui/trayRightClickMenu.py:35
+msgid "About"
+msgstr "Über Create_AP-GUI"
+
+#: createApGui/createEditAp.py:298
+msgid "AP is running"
+msgstr "Access-Point aktiv :)"
+
+#: createApGui/createEditAp.py:298
+msgid "Before start new one, turn off running AP."
+msgstr "Bevor du einen neuen AP erstellen kannst, schalte den aktiven AP erst ab."
+
+#: createApGui/createEditAp.py:336
+msgid "Invalid password length"
+msgstr "Ungültige Länge des Passworts."
+
+#: createApGui/createEditAp.py:336
+msgid "expected length 8..63"
+msgstr "erwartete Länge 8..63"
+
+#: createApGui/createEditAp.py:339
+msgid "Ap name is Empty"
+msgstr "AP-Name ist leer"
+
+#: createApGui/createEditAp.py:339
+msgid "Please fill it."
+msgstr "Bitte ausfüllen."
+
+#: createApGui/runningAp.py:10
+msgid "No active AP"
+msgstr "Kein AP gewählt"
+
+#: createApGui/runningAp.py:20
+msgid "Creating AP..."
+msgstr "Access-Point wird angelegt..."
+
+#: createApGui/runningAp.py:21 createApGui/runningAp.py:47
+msgid "Disconnect"
+msgstr "Verbindung unterbrochen"
+
+#: createApGui/runningAp.py:40
+msgid "Create failed"
+msgstr "Anlegen des AP fehlgeschlagen"
+
+#: createApGui/runningAp.py:42
+msgid "AP Error"
+msgstr "AP Fehler"
+
+#: createApGui/runningAp.py:43
+msgid "Error details"
+msgstr "Fehler Details"
+
+#: createApGui/runningAp.py:46
+msgid "AP is active"
+msgstr "Access-Point aktiv :)"
+
+#: createApGui/runningAp.py:49
+msgid "INTERFACE-DISABLED"
+msgstr "Schnittstelle deaktiviert"
+
+#: createApGui/trayRightClickMenu.py:28
+msgid "Show AP Status"
+msgstr "Access-Points-Status"
+
+#: createApGui/trayRightClickMenu.py:32
+msgid "Setup New AP"
+msgstr "Access-Points anlegen"
+
+#: createApGui/trayRightClickMenu.py:39
+msgid "Exit"
+msgstr "Programm beenden"
