@@ -20,15 +20,15 @@ msgstr ""
 #: createApGui/createEditAp.py:44 createApGui/createEditAp.py:94
 #: createApGui/createEditAp.py:131
 msgid "AP name"
-msgstr "Bağlantı Noktası ismi"
+msgstr "Erişim noktası adı"
 
 #: createApGui/createEditAp.py:48 createApGui/createEditAp.py:107
 msgid "Wifi interface"
-msgstr "Modem"
+msgstr "Kablosuz ağ arayüzü"
 
 #: createApGui/createEditAp.py:52 createApGui/createEditAp.py:112
 msgid "Interface with Internet"
-msgstr "Router"
+msgstr "İnternet olan arayüz"
 
 #: createApGui/createEditAp.py:56
 msgid "Receiving"
@@ -57,7 +57,7 @@ msgstr "Bağlan"
 
 #: createApGui/createEditAp.py:75
 msgid "Running AP"
-msgstr "Çalışıyor"
+msgstr "Çalışan Erişim Noktası"
 
 #: createApGui/createEditAp.py:99
 msgid "Password"
@@ -73,7 +73,7 @@ msgstr "Yenile"
 
 #: createApGui/createEditAp.py:119
 msgid "Only Create"
-msgstr "Kaydetmeden Oluştur"
+msgstr "Sadece Oluştur"
 
 #: createApGui/createEditAp.py:120
 msgid "Save and Create"
@@ -81,15 +81,15 @@ msgstr "Kaydet ve Oluştur"
 
 #: createApGui/createEditAp.py:121
 msgid "New AP"
-msgstr "NYeni Bağlantı Noktası"
+msgstr "Yeni Erişim Noktası"
 
 #: createApGui/createEditAp.py:131
 msgid "Interface1"
-msgstr "Modem1"
+msgstr "Arayüz1"
 
 #: createApGui/createEditAp.py:131
 msgid "Interface2"
-msgstr "Modem2"
+msgstr "Arayüz2"
 
 #: createApGui/createEditAp.py:137
 msgid "Delete"
@@ -101,11 +101,11 @@ msgstr "Oluştur"
 
 #: createApGui/createEditAp.py:141 createApGui/trayRightClickMenu.py:44
 msgid "Create AP"
-msgstr "Bağlantı Noktası Oluştur"
+msgstr "Erişim Noktası Oluştur"
 
 #: createApGui/createEditAp.py:149
 msgid "Language"
-msgstr "Arayüz Dili"
+msgstr "Dil"
 
 #: createApGui/createEditAp.py:155
 msgid "Save"
@@ -117,27 +117,27 @@ msgstr "Ayarlar"
 
 #: createApGui/createEditAp.py:173
 msgid "Create AP Gui"
-msgstr "Create AP Gui"
+msgstr "Create AP Grafik Arayüzü"
 
 #: createApGui/createEditAp.py:178
 msgid ""
 "\t Gui application for easy creating access points.\n"
 " Application allows save configuration for quickly create AP."
 msgstr ""
-"\t İnternetinizi paylaşmanın en kolay yolu\n"
-" Kolayca bağlantı noktası oluşturup kaydetmenizi sağlar."
+"\t Kolayca erişim noktası oluşturmak için grafik arayüzlü uygulama\n"
+" Uygulama kolayca erişim noktası oluşturmanızı ve yapılandırmayı kaydetmenii sağlar."
 
 #: createApGui/createEditAp.py:180
 msgid "Author:"
-msgstr "Geliştiren/Çeviren:"
+msgstr "Geliştirici:"
 
 #: createApGui/createEditAp.py:181
 msgid "Jakub Pelikan"
-msgstr "Jakub Pelikan/Mehmet Mücahit ÇALI"
+msgstr "Jakub Pelikan"
 
 #: createApGui/createEditAp.py:183
 msgid "Nick:"
-msgstr "Nick:"
+msgstr "Rumuz:"
 
 #: createApGui/createEditAp.py:184
 msgid "P-eli"
@@ -145,7 +145,7 @@ msgstr "P-eli"
 
 #: createApGui/createEditAp.py:186
 msgid "Email:"
-msgstr "Email:"
+msgstr "Eposta:"
 
 #: createApGui/createEditAp.py:187
 msgid "jakub.pelikan@gmail.com"
@@ -153,7 +153,7 @@ msgstr "jakub.pelikan@gmail.com"
 
 #: createApGui/createEditAp.py:189
 msgid "Website:"
-msgstr "Website"
+msgstr "Websitesi:"
 
 #: createApGui/createEditAp.py:196 createApGui/trayRightClickMenu.py:35
 msgid "About"
@@ -161,15 +161,15 @@ msgstr "Hakkında"
 
 #: createApGui/createEditAp.py:298
 msgid "AP is running"
-msgstr "Bağlantı Noktası Aktif"
+msgstr "Erişim noktası çalışıyor"
 
 #: createApGui/createEditAp.py:298
 msgid "Before start new one, turn off running AP."
-msgstr "Yeni bir tane oluşturmadan önce çalışan bağlantı noktasını kapatın."
+msgstr "Yeni bir tane oluşturmadan önce çalışan erişim noktasını kapatın."
 
 #: createApGui/createEditAp.py:336
 msgid "Invalid password length"
-msgstr "Şifre uzunluğu geçersiz"
+msgstr "Geçersiz şifre uzunluğu"
 
 #: createApGui/createEditAp.py:336
 msgid "expected length 8..63"
@@ -177,51 +177,51 @@ msgstr "Kabuledilen uzunluk 8-63"
 
 #: createApGui/createEditAp.py:339
 msgid "Ap name is Empty"
-msgstr "İsim kısmını boş bıraktınız"
+msgstr "Erişim noktası adı boş"
 
 #: createApGui/createEditAp.py:339
 msgid "Please fill it."
-msgstr "Lütfen bütün alanları doldurun"
+msgstr "Lütfen şunları doldurun."
 
 #: createApGui/runningAp.py:10
 msgid "No active AP"
-msgstr "Çalışan bağlantı yok"
+msgstr "Çalışan erişim noktası yok"
 
 #: createApGui/runningAp.py:20
 msgid "Creating AP..."
-msgstr "Bağlantı Noktası oluşturuluyor"
+msgstr "Erişim noktası oluşturuluyor..."
 
 #: createApGui/runningAp.py:21 createApGui/runningAp.py:47
 msgid "Disconnect"
-msgstr "Bağlantıyı Kes"
+msgstr "Bağlantıyı kes"
 
 #: createApGui/runningAp.py:40
 msgid "Create failed"
-msgstr "Bağlantı Noktası Oluşturulamadı"
+msgstr "Oluşturma başarısız"
 
 #: createApGui/runningAp.py:42
 msgid "AP Error"
-msgstr "Bağlantı Noktası Oluşturulamadı"
+msgstr "Erişim noktası hatası"
 
 #: createApGui/runningAp.py:43
 msgid "Error details"
-msgstr "Hata Detayı"
+msgstr "Hata detayı"
 
 #: createApGui/runningAp.py:46
 msgid "AP is active"
-msgstr "Bağlantı Noktası çalışıyor"
+msgstr "Erişim noktası etkin"
 
 #: createApGui/runningAp.py:49
 msgid "INTERFACE-DISABLED"
-msgstr "Modem kapatıldı"
+msgstr "ARAYÜZ-PASİF"
 
 #: createApGui/trayRightClickMenu.py:28
 msgid "Show AP Status"
-msgstr "Bağlantı Noktası durumunu göster"
+msgstr "Erişim noktası durumunu göster"
 
 #: createApGui/trayRightClickMenu.py:32
 msgid "Setup New AP"
-msgstr "Bağlantı Noktası Kur"
+msgstr "Yeni erişim noktası yapılandır"
 
 #: createApGui/trayRightClickMenu.py:39
 msgid "Exit"
