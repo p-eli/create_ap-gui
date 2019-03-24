@@ -8,8 +8,10 @@ Required dependency:
     python3
     net-tools (ifconfig)
 
-Install as python package (required 'pip' for python3):
-    sudo python setup.py install
+How to Install
+    sudo apt install git python3-setuptools
+    git clone https://github.com/kelebek333/create_ap-gui; cd create_ap-gui
+    sudo python3 setup.py install
 
 
 TODO
