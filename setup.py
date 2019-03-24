@@ -6,7 +6,7 @@ from createApGui import __version__
 
 def getDataFiles():
     if sys.platform == 'linux':
-       return [('/usr/share/applications', ['postinst/createApGui.desktop']),('/usr/share/pixmaps/', ['postinst/createApGui.png'])]
+       return [('/usr/share/applications', ['postinst/createApGui.desktop']),('/usr/share/pixmaps/', ['postinst/createApGui.png']),('/usr/share/polkit-1/actions', ['postinst/org.freedesktop.policykit.pkexec.create_ap-gui.policy'])]
     else:
         return []
 
