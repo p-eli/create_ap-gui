@@ -16,7 +16,7 @@ How to Install
 
 `sudo apt install git python3-setuptools`
 
-`git clone https://github.com/kelebek333/create_ap-gui; cd create_ap-gui`
+`git clone https://github.com/p-eli/create_ap-gui; cd create_ap-gui`
 
 `sudo python3 setup.py install`
 
