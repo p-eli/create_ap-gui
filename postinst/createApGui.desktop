@@ -1,11 +1,12 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=createAp-Gui
-X-GNOME-FullName=gksudo create_ap-gui
-Exec=gksudo create_ap-gui
-Icon=createApGui
+X-GNOME-FullName=pkexec create_ap-gui
+Exec=pkexec create_ap-gui
+TryExec=pkexec createAp-Gui
+Icon=createApGui.png
 Terminal=false
 Type=Application
 StartupNotify=false
-Comment=Creating AP GUI
+Comment=GUI for CreateAP 
 Name[en_US]=createAp-Gui

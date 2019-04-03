@@ -10,7 +10,7 @@ class UserSetting():
         self.language = {'name':'English_en', 'fileName':'lang', 'path':'lang'}
         self.saveAp = []
         try:
-            self.saveFile = {'path':os.path.join(os.path.expanduser("~"+os.getenv("SUDO_USER")),'.crateApGui'), 'fileName':'userSetting'}
+            self.saveFile = {'path':os.path.join(os.path.expanduser("~"+os.getenv("PKEXEC_UID")),'.crateApGui'), 'fileName':'userSetting'}
         except:
             self.saveFile = {'path':os.path.join(os.path.expanduser("~"+os.getlogin()),'.crateApGui'), 'fileName':'userSetting'}
       #  self.newAP = {'name':'','passwd':'','interface':None,'interface1':None}
